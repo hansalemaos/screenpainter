@@ -6,7 +6,7 @@ Little utility (presentations/online classes) to paint to the screen
 You can download the compiled exe file: https://github.com/hansalemaos/screenpainter/blob/main/screenpaint.exe
 
 
-This app has no GUI, it works with shortcuts, which can be configured in an ini file:
+This app has no GUI, it works with shortcuts which can be configured in an ini file:
 
 ```
 [cfg]
@@ -15,7 +15,7 @@ sleep_between_refresh: 1
 mousedraw: left
 keydraw: 0x11
 mousedelete: left
-keydelete: 0x12
+keydelete: 0x12  
 thickness_keys: "['ctrl+alt+p', 'ctrl+alt+m']"
 clearallkey: ctrl+alt+t
 killkey: ctrl+alt+k
@@ -23,3 +23,4 @@ debug: False
 dpi_awareness: 2
 number_of_threads: 1
 ```
+keycodes can be found here: https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
