@@ -1,0 +1,16 @@
+charset-normalizer
+deepcopyall
+dill
+fabisschomagut
+flatten-any-dict-iterable-or-whatsoever
+hackycfgparser
+isiter
+keyboard
+kthread
+kthread-sleep
+numpy
+packaging
+setuptools
+tolerant-isinstance
+touchtouch
+pytz
