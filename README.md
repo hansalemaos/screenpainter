@@ -25,3 +25,5 @@ dpi_awareness: 2
 number_of_threads: 1
 ```
 keycodes can be found here: https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
+
+Almost all color formats are supported. Conversation to RGB is done using: https://github.com/hansalemaos/fabisschomagut
