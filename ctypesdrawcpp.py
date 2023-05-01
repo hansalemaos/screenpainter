@@ -71,7 +71,6 @@ except Exception as fe:
     print(fe)
     from hackycfgparser import add_config
 
-
 from tkinter import messagebox
 import sys
 from collections import deque
@@ -207,7 +206,7 @@ POINT = wintypes.POINT
 
 def load_so_file():
     def compile_ccp_source(
-        save_path="colordrawc.so", clangpath=r"C:\Program Files\LLVM\bin\clang.exe"
+            save_path="colordrawc.so", clangpath=r"C:\Program Files\LLVM\bin\clang.exe"
     ):
         save_path = os.path.join(os.path.dirname(sys.executable), save_path)
         savepathso = os.path.normpath(save_path)
@@ -228,7 +227,7 @@ extern "C" __declspec(dllexport) void draw_image(HDC hdc, HWND hwnd, int coordle
             SetPixel(hdc, coordx[i], coordy[i], rgbc[i]);}
     }
 
-    
+
 }
         """
         commandsub = [
@@ -316,7 +315,6 @@ VK_RBUTTON = 0x02
 
 GetAsyncKeyState = user32.GetAsyncKeyState
 
-
 GetCursorPos = user32.GetCursorPos
 
 pixel_drawer = load_so_file()
@@ -339,7 +337,6 @@ GetKeyState.restype = wintypes.USHORT
 breakarray = np.zeros(1, dtype=np.int32)
 breakarraypoi = breakarray.ctypes.data_as(ctypes.POINTER(ctypes.c_int))
 
-
 gdi32 = ctypes.WinDLL("gdi32")
 
 HWND = wintypes.HWND
@@ -347,14 +344,12 @@ HDC = wintypes.HDC
 HBRUSH = wintypes.HBRUSH
 HPEN = wintypes.HPEN
 
-
 GetDC = user32.GetDC
 ReleaseDC = user32.ReleaseDC
 CreatePen = gdi32.CreatePen
 SelectObject = gdi32.SelectObject
 DeleteObject = gdi32.DeleteObject
 Ellipse = gdi32.Ellipse
-
 
 hwnd = user32.GetDesktopWindow()
 
@@ -529,24 +524,25 @@ def clean_screens(hwnd, hdc, color=0xFFFFFF, freememory=False):
 
 @add_config
 def start_ctypesscreendraw(
-    colorkeys: tuple
-    | list = (
-        (0xFF0000, "ctrl+alt+e"),
-        (0xFFFF00, "ctrl+alt+f"),
-        (0x00FF00, "ctrl+alt+g"),
-    ),  #
-    sleep_between_refresh: int | float = 1,
-    mousedraw: str = "left",
-    keydraw: int = 0x11,  # 0x11 is the code for the CTRL key (if you press the ctrl key and move the mouse, you can draw on the screen)
-    #  https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
-    mousedelete: str = "right",
-    keydelete: int = 0x11,
-    thickness_keys: tuple | list = ("ctrl+alt+p", "ctrl+alt+m"),
-    clearallkey: str = "ctrl+alt+t",
-    killkey: str = "ctrl+alt+k",
-    debug: bool = True,
-    dpi_awareness: int = 2,  # valid: 0,1,2
-    number_of_threads: int = 1,
+        colorkeys: tuple
+                   | list = (
+                (0xFF0000, "ctrl+alt+e"),
+                (0xFFFF00, "ctrl+alt+f"),
+                (0x00FF00, "ctrl+alt+g"),
+        ),  #
+        sleep_between_refresh: int | float = 1,
+        mousedraw: str = "left",
+        keydraw: int = 0x11,
+        # 0x11 is the code for the CTRL key (if you press the ctrl key and move the mouse, you can draw on the screen)
+        #  https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
+        mousedelete: str = "right",
+        keydelete: int = 0x11,
+        thickness_keys: tuple | list = ("ctrl+alt+p", "ctrl+alt+m"),
+        clearallkey: str = "ctrl+alt+t",
+        killkey: str = "ctrl+alt+k",
+        debug: bool = True,
+        dpi_awareness: int = 2,  # valid: 0,1,2
+        number_of_threads: int = 1,
 ) -> None:
     # does nothing for now
     if number_of_threads < 1:
